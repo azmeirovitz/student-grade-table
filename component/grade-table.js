@@ -1,17 +1,67 @@
 
 class GradeTable {
     constructor(tableElement) {
-        this.data = tableElement;
-        
-        this.handleGetGradesError = this.handleGetGradesError.bind(this);
-        this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
-
+        this.tableElement = tableElement;        
     }
 
-updateGrades (grades) {
-    console.log("grades: "), grades;
-}
+    updateGrades (grades) {
+        console.log("grades: ", grades);
+
+        //document.querySelector("#tableBody").innerHTML="";
+        this.tableElement.innerHTML ="";
+        //this.tableElement.empty();
 
 
+        for (var i=0; i<grades.length; i++) {
+
+            var $tr = document.createElement("tr");
+            
+            // var $tr = $("<tr>", {
+            //    class: "tr1",
+            // })
+            var gradesItem = grades[i];
+
+            var $tdName = document.createElement("td");
+            //var nameText = grades[i];
+            var $tdNameText = document.createTextNode(gradesItem.name);
+            $tdName.appendChild($tdNameText);
+
+            var $tdCourse = document.createElement("td");
+            var $tdCourseText = document.createTextNode(gradesItem.course);
+            $tdCourse.appendChild($tdCourseText);
+
+            var $tdGrade = document.createElement("td");
+            var $tdGradeText = document.createTextNode(gradesItem.grade);
+            $tdGrade.appendChild($tdGradeText);
+
+            $tr.append($tdName, $tdCourse, $tdGrade);
+
+            this.tableElement.appendChild($tr);
+            
+
+
+            // var $tdName = $("<td>", {
+            //     class: "tdName",
+            //     text: grades.name[i]
+            // })
+
+            // var $tCourse = $("<td>", {
+            //     class: "tdCourse",
+            //     text: grades.course[i]
+            // })
+
+            // var $tdGrade = $("<td>", {
+            //     class: "tdGrade",
+            //     text: grades.grade[i]
+            // })
+
+
+           //this.tableElement.append($tr);
+
+        }
+
+
+
+    }
 
 }

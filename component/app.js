@@ -1,7 +1,6 @@
-
 class App {
     constructor(gradeTable) {
-        this.data = gradeTable;
+        this.gradeTable = gradeTable;
         
         this.handleGetGradesError = this.handleGetGradesError.bind(this);
         this.handleGetGradesSuccess = this.handleGetGradesSuccess.bind(this);
@@ -17,7 +16,6 @@ class App {
         console.log("grades: ", grades);
 
         this.gradeTable.updateGrades(grades);
-
     }
 
     getGrades () {
@@ -25,15 +23,10 @@ class App {
         var ajaxOptions = {
         url: "https://sgt.lfzprototypes.com/api/grades",
 
-       
-
         // url: `/api/grades/json`,
         method: "GET",
         dataType: "json",
-        // data: {
-        //     key: GOOGLE_API_KEY,
-        //     placeid: this.data.place_id
-        // },
+        
         headers: {
             "X-Access-Token": "944Roegi"
         },
@@ -47,9 +40,4 @@ class App {
     start () {
         this.getGrades();
     }
-
-
-
-
-
 }
