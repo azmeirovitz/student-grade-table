@@ -2,6 +2,10 @@
 $(document).ready(initializing);
 
 
+var studentsGrade;
+
+var studentsGradeTable;
+
 function initializing () {
 
     var tableElement= document.querySelector("#tableBody");
@@ -9,8 +13,11 @@ function initializing () {
     studentsGradeTable = new GradeTable(tableElement)
             
     studentsGrade = new App(studentsGradeTable)
-        
-    studentsGrade.start();    
+        //gradeTableInstance: studentsGradeTable
+    
+
+    studentsGrade.start();
+    
      
 }
 
