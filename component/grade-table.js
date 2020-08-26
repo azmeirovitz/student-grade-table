@@ -7,7 +7,6 @@ class GradeTable {
     updateGrades (grades) {
         console.log("grades: ", grades);
 
-        //document.querySelector("#tableBody").innerHTML="";
         this.tableElement.innerHTML ="";
         //this.tableElement.empty();
 
@@ -16,13 +15,9 @@ class GradeTable {
 
             var $tr = document.createElement("tr");
             
-            // var $tr = $("<tr>", {
-            //    class: "tr1",
-            // })
             var gradesItem = grades[i];
 
             var $tdName = document.createElement("td");
-            //var nameText = grades[i];
             var $tdNameText = document.createTextNode(gradesItem.name);
             $tdName.appendChild($tdNameText);
 
@@ -53,14 +48,9 @@ class GradeTable {
             // var $tdGrade = $("<td>", {
             //     class: "tdGrade",
             //     text: grades.grade[i]
-            // })
-
-
-           //this.tableElement.append($tr);
+            // })           
 
         }
-
-
 
     }
 

@@ -22,11 +22,8 @@ class App {
     
         var ajaxOptions = {
         url: "https://sgt.lfzprototypes.com/api/grades",
-
-        // url: `/api/grades/json`,
         method: "GET",
-        dataType: "json",
-        
+        dataType: "json",        
         headers: {
             "X-Access-Token": "944Roegi"
         },
