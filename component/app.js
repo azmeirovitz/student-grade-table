@@ -15,6 +15,22 @@ class App {
 
     handleGetGradesSuccess(grades) {
         console.log("grades: ", grades);
+        var addedGrades= 0;
+        var oneGrade;
+        var average;
+        var counter;
+
+        for (var i=0; i<grades.length; i++) {
+              
+            var studentGrade = grades[i];
+            oneGrade = studentGrade.grade;
+            addedGrades = addedGrades + oneGrade;
+            counter = i+1;
+            average = addedGrades / counter;
+
+        }
+        
+        this.pageHeader.updateAverage(average);
 
         this.gradeTable.updateGrades(grades);
     }
