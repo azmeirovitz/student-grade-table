@@ -14,8 +14,10 @@ function initializing () {
     var header = document.querySelector(".header");
     var pageHeader = new PageHeader(header)
 
+    var formElement = document.querySelector(".formElement");
+    var theForm = new GradeForm(formElement)
             
-    var studentsGrade = new App(studentsGradeTable, pageHeader)
+    var studentsGrade = new App(studentsGradeTable, pageHeader, theForm)
         
     studentsGrade.start();    
      
