@@ -1,7 +1,8 @@
 
 class GradeTable {
-    constructor(tableElement) {
-        this.tableElement = tableElement;        
+    constructor(tableElement, noGradeElement) {
+        this.tableElement = tableElement;  
+        this.noGradeElement = noGradeElement;
     }
 
     updateGrades (grades) {
@@ -10,12 +11,31 @@ class GradeTable {
         this.tableElement.innerHTML ="";
         //this.tableElement.empty();
 
+        this.renderGradeRow(grades, this.deleteGrade);
 
-        for (var i=0; i<grades.length; i++) {
+        var pElement = this.noGradeElement;
+
+        if (grades.length > 0) {
+            pElement.className += "d-done"
+        } else {
+            pElement.classList.remove("d-done")
+        }            
+
+        }
+
+    
+
+    onDeleteClick (deleteGrade){
+        this.deleteGrade = deleteGrade;
+    }
+
+    renderGradeRow(data, deleteGrade) {
+
+        for (var i=0; i<data.length; i++) {
 
             var $tr = document.createElement("tr");
             
-            var gradesItem = grades[i];
+            var gradesItem = data[i];
 
             var $tdName = document.createElement("td");
             var $tdNameText = document.createTextNode(gradesItem.name);
@@ -29,29 +49,24 @@ class GradeTable {
             var $tdGradeText = document.createTextNode(gradesItem.grade);
             $tdGrade.appendChild($tdGradeText);
 
-            $tr.append($tdName, $tdCourse, $tdGrade);
+            var $tdDelete = document.createElement("td");
+            var $tdDeleteButton = document.createElement("button");
+            $tdDeleteButton.textContent = "Delete";
+            $tdDeleteButton.className = "btn btn-primary";
+            $tdDeleteButton.addEventListener('click', function() { deleteGrade(gradesItem.id);
+            });
+
+            $tdDelete.appendChild($tdDeleteButton);
+
+            $tr.append($tdName, $tdCourse, $tdGrade, $tdDelete);
 
             this.tableElement.appendChild($tr);
+
+                    
             
-
-
-            // var $tdName = $("<td>", {
-            //     class: "tdName",
-            //     text: grades.name[i]
-            // })
-
-            // var $tCourse = $("<td>", {
-            //     class: "tdCourse",
-            //     text: grades.course[i]
-            // })
-
-            // var $tdGrade = $("<td>", {
-            //     class: "tdGrade",
-            //     text: grades.grade[i]
-            // })           
-
-        }
-
+        // <button class="btn btn-primary" type="submit" style="margin-left: 64%;">Delete</button>
     }
+
+}
 
 }
