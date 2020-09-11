@@ -8,7 +8,8 @@ function initializing () {
 
     var tableElement= document.querySelector("#tableBody");
 
-    var studentsGradeTable = new GradeTable(tableElement)
+    var pTag = document.querySelector("#p_tag");
+    var studentsGradeTable = new GradeTable(tableElement, pTag)
 
 
     var header = document.querySelector(".header");
