@@ -4,8 +4,11 @@ class PageHeader {
     }
 
     updateAverage (newAverage) {
-        
+
+          
         var badge = this.headerElement.querySelector("#spanBadge");
+
+        badge.innerHTML ="";
         
         var averageContent = document.createTextNode(newAverage);        
 
