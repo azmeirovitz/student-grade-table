@@ -11,7 +11,14 @@ class GradeTable {
         this.tableElement.innerHTML ="";
         //this.tableElement.empty();
 
-        this.renderGradeRow(grades, this.deleteGrade);
+        for (var i=0; i<grades.length; i++) {
+
+        //this.renderGradeRow(grades, this.deleteGrade);
+
+         var trRow = this.renderGradeRow(grades, this.deleteGrade, i);
+         this.tableElement.appendChild(trRow);
+
+        }
 
         for (var i=0; i<grades.length; i++) {
             var pElement = this.noGradeElement;
@@ -31,9 +38,9 @@ class GradeTable {
         }
 
 
-        renderGradeRow(data, deleteGrade) {
+        renderGradeRow(data, deleteGrade, i) {
 
-            for (var i=0; i<data.length; i++) {
+            //for (var i=0; i<data.length; i++) {
     
                 var $tr = document.createElement("tr");
     
@@ -52,25 +59,22 @@ class GradeTable {
                 var $tdGradeText = document.createTextNode(gradesItem.grade);
                 $tdGrade.appendChild($tdGradeText);
     
-                // $tr.append($tdName, $tdCourse, $tdGrade);
-
                 var $tdDelete = document.createElement("td");
                 var $tdDeleteButton = document.createElement("button");
                 $tdDeleteButton.textContent = "Delete";
                 $tdDeleteButton.className = "btn btn-primary";
                 $tdDeleteButton.addEventListener('click', function() { deleteGrade(gradesItem.id);
-                });
-    
-                
+                });                
     
                 $tdDelete.appendChild($tdDeleteButton);
                 $tr.append($tdName, $tdCourse, $tdGrade, $tdDelete);
                 this.tableElement.appendChild($tr);
 
-                           
+                return $tr;                           
             
 
-        }
+        //}
+        //return $tr;
                     
     }
 
