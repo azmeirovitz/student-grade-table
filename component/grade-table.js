@@ -39,9 +39,7 @@ class GradeTable {
 
 
         renderGradeRow(data, deleteGrade, i) {
-
-            //for (var i=0; i<data.length; i++) {
-    
+             
                 var $tr = document.createElement("tr");
     
                 //var gradesItem = grades[i];
@@ -70,12 +68,8 @@ class GradeTable {
                 $tr.append($tdName, $tdCourse, $tdGrade, $tdDelete);
                 this.tableElement.appendChild($tr);
 
-                return $tr;                           
-            
-
-        //}
-        //return $tr;
-                    
+                return $tr; 
+                            
     }
 
 }
